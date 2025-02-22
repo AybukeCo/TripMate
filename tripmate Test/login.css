@@ -3,15 +3,15 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "League Spartan", serif;
-}
-
-root {
     --black-text: #000000;
+    --background: #efebee;
+    --button: #cdaaee;
+    --max-width: 390px;
 }
 
 body {
-    background-color: #e0e0e0;
-    width: 390px;
+    background-color: var(--background);
+    width: var(--max-width);
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -21,11 +21,19 @@ body {
     padding: 20px;
 }
 
+/* Logo Container*/
+.logo {
+    width: 288px;
+    height: auto;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
 /* Image Placeholder */
 .image-container {
     width: 288px;
     height: 228px;
-    margin-top:20vh;
+    margin-top: 8vh;
     background-color: #eee;
     border: 2px solid black;
     display: flex;
@@ -35,32 +43,19 @@ body {
     margin-bottom: 20px;
 }
 
-/* Logo */
-.logo {
-    font-size: 32px;
-    font-family: cursive;
-    font-weight: bold;
-    margin-bottom: 30px;
-}
-
-.logo span {
-    font-size: 36px;
-    font-family: cursive;
-    font-weight: bold;
-}
-
 /* Buttons */
 .button {
     width: 85%;
-    padding: 15px;
-    margin: 20px 10px;
-    background-color: black;
+    padding: 1em;
+    margin: 3vh auto;
+    background-color: var(--button);
     color: white;
     border: none;
     font-size: 16px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .button:hover {
@@ -106,23 +101,6 @@ body {
     color: var(--black-text);
 }
 
-/* Buttons */
-.button {
-    width: 90%;
-    padding: 15px;
-    margin: 10px 0;
-    background-color: black;
-    color: white;
-    border: none;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: #333;
-}
 
 /* Register Section */
 .register-section {
