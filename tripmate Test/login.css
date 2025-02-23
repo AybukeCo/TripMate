@@ -4,8 +4,10 @@
     box-sizing: border-box;
     font-family: "League Spartan", serif;
     --black-text: #000000;
+    --white-text: #ffffff;
     --background: #efebee;
     --button: #cdaaee;
+    --button-hover: #644c7a;
     --max-width: 390px;
 }
 
@@ -25,15 +27,14 @@ body {
 .logo {
     width: 288px;
     height: auto;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin: 3vh auto;
 }
 
 /* Image Placeholder */
 .image-container {
     width: 288px;
     height: 228px;
-    margin-top: 8vh;
+    margin-top: 5vh;
     background-color: #eee;
     border: 2px solid black;
     display: flex;
@@ -45,13 +46,14 @@ body {
 
 /* Buttons */
 .button {
-    width: 85%;
+    width: 334px;
+    height: 64px;
     padding: 1em;
     margin: 3vh auto;
     background-color: var(--button);
     color: white;
     border: none;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
@@ -59,14 +61,28 @@ body {
 }
 
 .button:hover {
-    background-color: #333;
+    background-color: var(--button-hover);
+}
+
+.login-signup a {
+    text-decoration: none;
+    color: var(--white-text);
 }
 
 /* Input Fields */
+.login-inputs {
+    margin-top: 5vh;
+}
+
+.register-inputs {
+    margin-top: 2.5vh;
+}
+
 .input-field {
-    width: 90%;
+    width: 334px;
+    height: 64px;
     padding: 15px;
-    margin-bottom: 15px;
+    margin: 15px auto;
     border: 2px solid black;
     border-radius: 8px;
     background-color: white;
@@ -88,9 +104,17 @@ body {
     cursor: pointer;
 }
 
+.email-valid-info {
+    font-size: 14px;
+    color: var(--button);
+    float: left;
+    padding: 10px;
+    margin: 5px;
+}
+
 /* Forgot Password */
 .forgot-password {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     text-align: right;
     width: 90%;
@@ -102,35 +126,31 @@ body {
 }
 
 
-/* Register Section */
-.register-section {
+/* Register/Login Tip Section */
+.tip-section {
     margin-top: 20px;
-    font-size: 14px;
+    font-size: 18px;
 }
 
-.register-section a {
+.tip-section a {
     font-weight: bold;
-    text-decoration: none;
     color: black;
 }
 
-/* Social Login Buttons */
-.social-login {
-    width: 90%;
-    padding: 15px;
+.back-header {
+    width: 100%;
     margin: 10px 0;
-    border: 2px solid black;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.back-btn {
+    float: left;
     cursor: pointer;
 }
 
-.social-login img {
-    width: 20px;
-    margin-left: 10px;
+.back-btn i {
+    font-size: 30px;
+}
+
+.hide-pwd-btn {
+    cursor: pointer;
 }

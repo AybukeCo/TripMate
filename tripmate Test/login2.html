@@ -4,45 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=390, initial-scale=1.0">
     <title>TripMate Login</title>
-    <script defer src="./node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
     <link rel="stylesheet" href="login.css">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/ce1662cecb.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<!-- Image Placeholder -->
+<!-- Header -->
+<div class="back-header">
+    <div class="back-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+    </div>
+</div>
 <!-- Back Button -->
-<div class="back-button">⬅</div>
+
 
 <!-- Logo -->
-<div class="logo">trip✈mate</div>
+<div class="logo"><img src="../assets/img/logo.png" alt="TripMate Logo" width="288"></div>
 
-<!-- Input Fields -->
-<div class="input-field">
-    <input type="email" placeholder="E-mail">
-</div>
+<div class="login-inputs">
 
-<div class="input-field">
-    <input type="password" placeholder="Password">
-    <span class="input-icon">👁️</span> <!-- Eye icon for password visibility -->
+        <p class="email-valid-info">Please enter valid email.</p>
+        <div class="input-field">
+            <input type="email" id="login-email" name="email" placeholder="E-mail">
+        </div>
+
+
+    <div class="input-field">
+        <input type="password" id="login-pwd" name="password" placeholder="Password">
+        <!-- Eye icon for password visibility -->
+        <div class="hide-pwd-btn" onclick="hideShowPwd()">
+            <i class="fa-solid fa-eye-slash"></i>
+        </div>
+    </div>
 </div>
 
 <!-- Forgot Password -->
 <div class="forgot-password">
-    <a href="#">Forgot password?</a>
+    <a href="forget_pwd.html">Forgot password?</a>
 </div>
 
 <!-- Login Button -->
-<button class="button" id="login2-login">Login</button>
+<button class="cfm-btn button" id="log-cfm-btn">Login</button>
 
 <!-- Register Section -->
-<div class="register-section">
-    New to TripMate App? <a href="#">Register</a>
+<div class="tip-section">
+    New to TripMate App? <a href="register.html">Register</a>
 </div>
 
-<!-- Social Login Buttons -->
-<button class="social-login" id="login-apple">Login with <i class="fa-brands fa-apple"></i></button>
-<button class="social-login" id="login-google">Login with <i class="fa-brands fa-google"></i></button>
+<script src="login.js"></script>
 
 </body>
 </html>
