@@ -5,11 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tripmate</title>
         <link rel="stylesheet" type="text/css" href="Aaron.css">
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     </head>
     <body>
         <!--Homepage-->
         <div class="header">
-            <img src="icons/Logo.png" id="Logoimg">
+            <img src="icons/Logo.png" id="Logoimg" alt="Logo for TripMate">
             <button class="bell"><img src="icons/bell.png" alt="Notifications"></button>
         </div>
         
@@ -32,20 +33,26 @@
             <button class="add-trip" onclick="toggleMenu()">+</button>
         </div>
 
-        <div class="navbar">
-            <a href="homepage.html" class="nav-item active">
-                <img src="icons/home.png" alt="Trips">
-                <span>Trips</span>
-            </a>
-            <a href="error.html" class="nav-item">
-                <img src="icons/chat.png" alt="Chat">
-                <span>Chat</span>
-            </a>
-            <a href="error.html" class="nav-item">
-                <img src="icons/user.png" alt="Profile">
-                <span>Profile</span>
-            </a>
-        </div>
+        <ul class="navbar">
+            <li class="nav-item">
+                <a href="homepage.html">
+                    <img src="icons/home.png" alt="Trips">
+                    <span>Trips</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="error.html">
+                    <img src="icons/chat.png" alt="Chat">
+                    <span>Chat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html">
+                    <img src="icons/user.png" alt="Profile">
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
 
 
         <!-- Add trip menu-->
@@ -96,6 +103,7 @@
 
 
         <script src="addtrip.js"></script>
+        <script src="navbar.js"></script>
 
     </body>
     </html>

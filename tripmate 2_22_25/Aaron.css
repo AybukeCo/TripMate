@@ -1,13 +1,19 @@
 * {
-    --background: #EFEBEE;
-    --primary: #CDAAEE;
-    --primary-shadow: #644c7a;
+    font-family: "League Spartan", serif;
+    --black-text: #000000;
+    --white-text: #ffffff;
+    --gray-text: #656565;
+    --background: #efebee;
+    --button: #cdaaee;
+    --button-hover: #644c7a;
+    --max-width: 390px;
 }
+
 
 /* General Styles */
 body {
     background-color: var(--background);
-    font-family: 'Arial', sans-serif;
+    font-family: 'League Spartan', serif;
     text-align: center;
     width: 330px;
     max-width: 330px;
@@ -53,36 +59,37 @@ body {
     text-align: left;
     position: relative; /* Needed for absolute positioning inside */
     width: 100%;
-    padding: 0 20px;
 }
 
 .dashboard h2 {
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;
 }
 
 .dashboard h3 {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 .dashboard p {
-    font-size: 12px;
-    color: #333;
-    width: 90%;
-    line-height: 1.5;
-    letter-spacing: 2px;
+    width: 300px;
+    margin: 0;
+    font-family: "League Spartan", serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 160% */
 }
 
 .add-trip {
-    background-color: var(--primary);
+    background-color: var(--button);
     color: white;
     border: none;
     font-size: 24px;
     width: 30px; /* Increased for better visibility */
     height: 30px; /* Same as width to ensure it's a perfect circle */
     border-radius: 50%;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 20px; /* Position it on the right */
     top: 70px; /* Position it at the top */
@@ -97,10 +104,15 @@ body {
 }
 
 .add-trip:hover {
-    background-color: var(--primary-shadow);
+    background-color: var(--button-hover);
 }
 
 /* Illustration */
+.illustration {
+    padding: 5px;
+    margin-bottom: 2vh;
+}
+
 .illustration img {
     width: 100%;
     height: auto;
@@ -108,10 +120,10 @@ body {
 
 /* Plan Trip Button */
 .plan-trip {
-    background-color: var(--primary);
+    background-color: var(--button);
     color: white;
-    font-weight: bold;
-    font-size: 20px; 
+    font-weight: 700;
+    font-size: 22px;
     padding: 16px 60px; 
     border: none;
     border-radius: 10px; 
@@ -123,37 +135,54 @@ body {
 }
 
 .plan-trip:hover {
-    background-color: var(--primary-shadow);
+    background-color: var(--button-hover);
 }
 
 /* Navbar */
 .navbar {
     position: fixed;
-    bottom: 10px; /* Moves the navbar 10px from the bottom */
+    flex-shrink: 0;
+    bottom: 20px; /* Moves the navbar 20px from the bottom */
     width: 100%;
     max-width: 330px;
     background: white;
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 5px;
     border-radius: 20px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     z-index: 1010;
+    fill: var(--white-text);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
+    list-style-type: none;
 }
 
 .nav-item {
-    display: flex;
+    width: 50px;
+    height: 45px;
+    font-weight: bold;
     flex-direction: column;
     align-items: center;
-    color: black;
+    left: -2px;
+    bottom: -4px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.nav-item a{
     text-decoration: none;
+    color: var(--gray-text);
+}
+
+.active a{
+    color: var(--black-text);
 }
 
 .nav-item:hover {
-    color: var(--primary-shadow); /* Darker text color */
+    color: var(--button-hover); /* Darker text color */
 }
 
 .nav-item img {
+    margin-top: 5px;
     width: 24px;
 }
 
@@ -163,7 +192,9 @@ body {
 }
 
 .active {
-    font-weight: bold;
+    border-radius: 15px;
+    background: var(--white-text);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* Add trip */
@@ -197,7 +228,7 @@ body {
 
 /* Input field */
 #trip-name {
-    background-color: var(--primary);
+    background-color: var(--button);
     color: white;
     font-weight: bold;
     padding: 10px 15px; 
@@ -218,7 +249,7 @@ body {
 }
 
 #trip-name:focus {
-    background-color: var(--primary-shadow); /* Darker shade when focused */
+    background-color: var(--button-hover); /* Darker shade when focused */
 }
 
 
@@ -252,7 +283,7 @@ body {
 }
 
 .dropbtn{
-    background-color: var(--primary);
+    background-color: var(--button);
     color: white;
     font-weight: bold;
     padding: 8px 60px; 
@@ -264,7 +295,7 @@ body {
 }
 
 .dropbtn.active {
-    background-color: var(--primary-shadow);
+    background-color: var(--button-hover);
 }   
 
 /* Style for the selected participants list */
@@ -283,7 +314,7 @@ body {
 }
 
 .participants-list li {
-    background-color: var(--primary);
+    background-color: var(--button);
     color: white;
     font-weight: bold;
     padding: 10px 20px;
@@ -419,4 +450,112 @@ body {
     font-weight: bold;
 }
 
+/* Profile Edit Button */
+.edit-profile-btn {
+    width: 58px;
+    height: 27px;
+    border: none;
+    border-radius: 20px;
+    background: var(--button);
+    color: var(--white-text);
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    right: 20px; /* Position it on the right */
+    top: 70px; /* Position it at the top */
+    cursor: pointer;
+}
 
+.edit-profile-btn:hover {
+    background-color: var(--button-hover);
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    position: relative;
+    width: 100%;
+}
+
+.profile-section h4 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.profile-section p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.profile-card {
+    width: 35%;
+    display: flex;
+    background: var(--white-text);
+    flex-direction: column;
+    align-items: flex-start;
+    border: 2px solid var(--black-text);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.profile-username p{
+    flex: 1;
+    display: flex;
+    text-align: center;
+    justify-content: center; /*主轴居中*/
+    margin: 10px 10px 0 10px ;
+}
+
+.profile-username {
+    margin-left: 28px;
+}
+
+.profile-img {
+    margin-left: 22px;
+    width: 70px;
+    height: 70px;
+    background-color: var(--white-text);
+    border-radius: 50%;
+    border: 1px solid var(--black-text);
+}
+
+
+.profile-input-group {
+    margin: 20px 0;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+}
+label {
+    display: block;
+    margin: 10px;
+}
+.profile-input-group input {
+    width: 280px;
+    height: 21px;
+    font-weight: bold;
+    background: var(--white-text);
+    padding: 0 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+/* Friends section in profile */
+
+.friend-section {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+}
+
+.friend-section h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 8px 0;
+}
