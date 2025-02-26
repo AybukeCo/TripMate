@@ -114,8 +114,11 @@ body {
 }
 
 .illustration img {
-    width: 100%;
+    width: 80%;
     height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Plan Trip Button */
@@ -123,15 +126,15 @@ body {
     background-color: var(--button);
     color: white;
     font-weight: 700;
-    font-size: 22px;
-    padding: 16px 60px; 
+    font-size: 18px;
+    padding: 8px 40px; 
     border: none;
     border-radius: 10px; 
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     text-align: center;
-    margin-left: 20px;
+    margin-left: 55px;
 }
 
 .plan-trip:hover {
@@ -150,7 +153,7 @@ body {
     justify-content: space-around;
     padding: 5px;
     border-radius: 20px;
-    z-index: 1010;
+    z-index: 1000;
     fill: var(--white-text);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25) inset;
     list-style-type: none;
@@ -209,13 +212,34 @@ body {
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    z-index: 1000;
+    z-index: 1010;
     font-family: 'Arial', sans-serif;
     width: 330px;
     max-width: 330px;
     height: 500px; /* Set a fixed height */
 
     overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+.close-menu{
+    background-color: rgb(252, 170, 170);
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;  /* Makes the button circular */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 20px; /* Position it on the right */
+    top: 15px; /* Position it at the top */
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centers the '+' inside the button vertically */
+    font-weight: bold; /* Ensures the '+' is more prominent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
 }
 
 .menu h3{
@@ -524,7 +548,6 @@ body {
     border: 1px solid var(--black-text);
 }
 
-
 .profile-input-group {
     margin: 20px 0;
     text-align: left;
@@ -559,3 +582,152 @@ label {
     font-weight: bold;
     margin: 8px 0;
 }
+
+
+/* Chat page section */
+
+.chat-header {
+    background-color: #b4b4b4;
+    position: relative; /* Needed for absolute positioning inside */
+    width: 120%;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.header-content h3{
+    padding-left: 15px;
+    text-align: left;
+    color: white;
+}
+
+.header-content button{
+    background-color: var(--button);
+    color: white;
+    border: none;
+    font-size: 24px;
+    width: 30px; /* Increased for better visibility */
+    height: 30px; /* Same as width to ensure it's a perfect circle */
+    border-radius: 50%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    right: 20px; /* Position it on the right */
+    top: 10px; /* Position it at the top */
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centers the '+' inside the button vertically */
+    font-weight: bold; /* Ensures the '+' is more prominent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+.header-content button:hover{
+    background-color: var(--button-hover);
+}
+
+.closebtn-chat{
+    background-color: #D7B7F4; 
+    color: white;
+    font-weight: bold;
+    padding: 16px 120px; 
+    border: none;
+    border-radius: 10px; 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+}
+
+.chat-participants-list {
+    margin: 10px;
+    min-height: 350px;
+    max-height: 350px; /* Set a maximum height for the container */
+    overflow-y: auto;  /* Enable vertical scrolling */
+    border: 2px dashed #D7B7F4; /* Add a dashed border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.chat-participants-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.participant-item {
+    padding: 10px;
+    border: 1px solid #D7B7F4;
+    border-radius: 10px;
+    margin: 5px 10px;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    text-align: center;
+
+    display: flex;
+    align-items: center;  /* Aligns icon and text vertically */
+    justify-content: flex-start;  /* Aligns everything to the left */
+}
+
+.participant-item.selected {
+    background-color: #D7B7F4;
+    color: white;
+    font-weight: bold;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.group-name-input {
+    font-weight: bold;
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    margin-top: 10px;
+    box-sizing: border-box; /* Ensures the input field respects padding and border */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease;
+}
+
+.group-name-input::placeholder {
+    color: rgba(51, 51, 51, 0.7); /* Lighten placeholder text */
+}
+
+.group-name-input:focus {
+    background-color: rgb(166, 166, 166); /* Darker shade when focused */
+}
+
+.chat-show-box{
+    margin-top: 20px;
+    height: 470px; /* Set a fixed height */
+    overflow-y: auto; /* Allow scrolling if content exceeds height */
+    max-height: 470px;
+}
+
+.chat-box-content{
+    padding: 5px;
+    border: 3px solid #D7B7F4;
+    border-radius: 10px;
+    margin: 10px 0px;
+    background-color: #f4f4f4;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    align-items: center;  /* Aligns icon and text vertically */
+    justify-content: flex-start;  /* Aligns everything to the left */
+}
+
+.chat-box-content img {
+    width: 10%;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+
+
+

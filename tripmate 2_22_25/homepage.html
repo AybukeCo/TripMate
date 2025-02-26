@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="error.html">
+                <a href="chat.html">
                     <img src="icons/chat.png" alt="Chat">
                     <span>Chat</span>
                 </a>
@@ -60,6 +60,8 @@
             <h3>Trip name</h3>
             <input type="text" id="trip-name" placeholder="Enter trip name">
 
+            <button class="close-menu" onclick="toggleMenu()">X</button>
+
             <h3>Participants</h3>
             <div class="participants-list">
                 <ul id="participant-list">
@@ -68,7 +70,7 @@
             </div>
             
             <div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown()">Select Participants</button>
+                <button class="dropbtn" onclick="toggleDropdown()">Add Participants</button>
                 <div class="dropdown-content" id="dropdown-content">
                     <a href="#" onclick="addParticipant('Participant 1')">Participant 1</a>
                     <a href="#" onclick="addParticipant('Participant 2')">Participant 2</a>

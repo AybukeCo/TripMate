@@ -136,12 +136,16 @@ function resetParticipants() {
 }
 
 // Function to create a new trip box
+// Function to create a new trip box
 function createTripBox(name, photoSrc) {
     var tripContainer = document.getElementById('trip-container');
 
     // Create a new div for the trip box
     var tripBox = document.createElement('div');
     tripBox.classList.add('trip-box');
+    tripBox.onclick = function() {
+        window.location.href = 'itinerary.html';
+    };
 
     // Add the trip name as a heading
     var tripHeading = document.createElement('h4');
@@ -156,4 +160,5 @@ function createTripBox(name, photoSrc) {
     // Append the new trip box to the container
     tripContainer.appendChild(tripBox);
 }
+
 
