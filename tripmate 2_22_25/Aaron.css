@@ -446,9 +446,9 @@ body {
 /* Added Trips */
 .show-box{
     display: none;
-    height: 400px; /* Set a fixed height */
+    height: 320px; /* Set a fixed height */
     overflow-y: auto; /* Allow scrolling if content exceeds height */
-    max-height: 400px;
+    max-height: 320px;
 }
 
 /* New Trip Box Style */
@@ -611,7 +611,7 @@ label {
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 20px; /* Position it on the right */
-    top: 10px; /* Position it at the top */
+    top: 12px; /* Position it at the top */
     cursor: pointer;
     text-align: center;
     line-height: 50px; /* Centers the '+' inside the button vertically */
@@ -636,7 +636,6 @@ label {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
     cursor: pointer;
     transition: all 0.3s ease;
-    
 }
 
 .chat-participants-list {
@@ -727,6 +726,121 @@ label {
     margin-left: 5px;
     margin-right: 10px;
 }
+
+
+/* Chatting page */
+
+.chatting-header {
+    background-color: #b4b4b4;
+    position: relative;
+    width: 120%;
+    padding: 10px;
+    margin: 0;
+    color: white;
+    text-align: left;
+    display: flex; /* Enables horizontal layout */
+    align-items: center; /* Vertically centers the content */
+}
+
+.chatting-info-content {
+    display: flex; /* Ensures items are aligned horizontally */
+    align-items: center; /* Vertically centers the button and h3 */
+}
+
+button.go-back-page {
+    padding: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button.go-back-page:hover {
+    background: rgba(99, 99, 99, 0.2);
+    border-radius: 50%;
+}
+
+.go-back-page img {
+    width: 20px;
+    height: auto;
+}
+
+.chatting-header h3 {
+    padding-left: 15px;
+    color: white;
+    margin: 0; /* Removes extra space around h3 */
+}
+
+
+.show-message {
+        margin: 10px;
+        min-height: 350px;
+        max-height: calc(100vh - 150px); /* Adjust height dynamically */
+        overflow-y: auto;
+        border: 2px dashed #D7B7F4;
+        border-radius: 10px;
+        padding: 80px;
+        margin-top: 15px;
+        margin-bottom: 10px; /* Prevents content from being hidden */
+}
+    
+.chatting-bottom {
+    background-color: #b4b4b4;
+    position: fixed; /* Fixes it to the bottom */
+    bottom: 0; /* Sticks it at the bottom of the viewport */
+    left: 50%; /* Moves the left edge to the middle of the screen */
+    transform: translateX(-50%); /* Shifts it back by half of its width to center it */
+    width: 90%; /* Adjusts the width */
+    max-width: 440px;
+    padding: 20px;
+    
+    /* Flexbox for centering */
+    display: flex;
+    align-items: center; /* Centers vertically */
+    justify-content: space-between; /* Distributes items evenly */
+}
+
+#chatting-box {
+        font-weight: bold;
+        width: 75%;
+        max-width: 75%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        outline: none;
+        font-size: 16px;
+        box-sizing: border-box; /* Ensures the input field respects padding and border */
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+        transition: all 0.3s ease;
+        resize: none;
+}
+
+#chatting-box::placeholder {
+        color: rgba(51, 51, 51, 0.7); /* Lighten placeholder text */
+}
+
+#chatting-box:focus {
+        background-color: rgb(166, 166, 166); /* Darker shade when focused */
+}
+
+.send-message{
+        background-color: #D7B7F4; 
+        color: white;
+        font-weight: bold;
+        padding: 8px 15px; 
+       
+        border: none;
+        border-radius: 20px; 
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+        cursor: pointer;
+        transition: all 0.3s ease;
+}
+
+.send-message:active{
+    background-color: var(--button-hover);
+}
+
+
+
 
 
 
