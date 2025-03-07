@@ -1,0 +1,111 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tripmate</title>
+        <link rel="stylesheet" type="text/css" href="Aaron.css">
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--Homepage-->
+        <div class="header">
+            <img src="icons/Logo.png" id="Logoimg" alt="Logo for TripMate">
+            <button class="bell"><img src="icons/bell.png" alt="Notifications"></button>
+        </div>
+        
+        <div class="dashboard">
+            <h2>Hi Alana!</h2>
+            <h3>My Trips</h3>
+            <div class="no-trip" id="no-trip">
+                <p>Click on the “+” button to create your first trip and to start planning with your friends.  
+                    Add friends by searching their username in the search section.
+                </p>
+
+                <div class="illustration">
+                    <img src="icons/mascot.png" alt="Bird Illustration">
+                </div>
+        
+                <button class="plan-trip" onclick="toggleMenu()">Plan your first trip</button>
+
+            </div>
+            
+            <button class="add-trip" onclick="toggleMenu()">+</button>
+        </div>
+
+        <ul class="navbar">
+            <li class="nav-item">
+                <a href="homepage.html">
+                    <img src="icons/home.png" alt="Trips">
+                    <span>Trips</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="chat.html">
+                    <img src="icons/chat.png" alt="Chat">
+                    <span>Chat</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html">
+                    <img src="icons/user.png" alt="Profile">
+                    <span>Profile</span>
+                </a>
+            </li>
+        </ul>
+
+
+        <!-- Add trip menu-->
+        <div class="menu" id="add-trip-menu">
+            <h3>Trip name</h3>
+            <input type="text" id="trip-name" placeholder="Enter trip name">
+
+            <button class="close-menu" onclick="toggleMenu()">X</button>
+
+            <h3>Participants</h3>
+            <div class="participants-list">
+                <ul id="participant-list">
+                    <!-- Selected participants will appear here -->
+                </ul>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn" onclick="toggleDropdown()">Add Participants</button>
+                <div class="dropdown-content" id="dropdown-content">
+                    <a href="#" onclick="addParticipant('Participant 1')">Participant 1</a>
+                    <a href="#" onclick="addParticipant('Participant 2')">Participant 2</a>
+                    <a href="#" onclick="addParticipant('Participant 3')">Participant 3</a>
+                    <a href="#" onclick="addParticipant('Participant 4')">Participant 4</a>
+                    <a href="#" onclick="addParticipant('Participant 5')">Participant 5</a>
+                </div>
+            </div>
+
+            <div class="Photo">
+                <h3>Add Cover Photo</h3>
+                <div class="photo-upload">
+                    <input type="file" id="cover-photo" accept="image/*" hidden onchange="previewPhoto(event)">
+                    <label for="cover-photo" class="add-photo-btn">+</label>
+                </div>
+            </div>
+            <div id="photo-preview"></div> <!-- This will show the uploaded photo -->
+            
+            
+
+            <button class="closebtn" onclick="closeMenu()">Create Trip</button>
+        </div>
+
+        <!--Addded Trips-->
+        <div class="show-box">
+            <div id="trip-container" class="trip-container">
+                <!-- New trips will appear here -->
+            </div>
+        </div>
+            
+        
+
+
+        <script src="addtrip.js"></script>
+        <script src="navbar.js"></script>
+
+    </body>
+    </html>

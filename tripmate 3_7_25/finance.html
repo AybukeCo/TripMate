@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Aaron.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ce1662cecb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Header -->
+<div class="back-header">
+    <div class="back-btn">
+        <i class="fa-solid fa-chevron-left"></i>
+    </div>
+    <div class="bell-btn">
+        <i class="fa-regular fa-bell"></i>
+    </div>
+</div>
+<hr>
+
+<div class="button-container">
+    <a href="itinerary.html" class="image-button">
+        <img src="icons/itinerary-icon.png" alt="Itinerary">
+        <span>Itinerary</span>
+    </a>
+    <a href="error.html" class="image-button">
+        <img src="icons/finance-icon.png" alt="Finance">
+        <span>Finance</span>
+    </a>
+    <a href="polls.html" class="image-button">
+        <img src="icons/polls-icon.png" alt="Polls">
+        <span>Polls</span>
+    </a>
+</div>
+
+<div class="finance-tab">
+    <button class="finance-tab-btn">Expense</button>
+    <button class="finance-tab-btn">Balance</button>
+</div>
+
+<div class="finance-exp">
+    <div class="exp-row">
+        <div class="exp-col">
+            <span>My Expenses</span>
+            <span id="my-exp">$0</span>
+        </div>
+        <div class="exp-col">
+            <span>Total Expenses</span>
+            <span id="total-exp">$0</span>
+        </div>
+    </div>
+    <div class="exp-log">
+        <div class="exp-log-header">
+            <span id="exp-log-date">2 Feb 2025</span>
+            <div class="exp-log-add">
+                <button onclick="addExpense()">+</button>
+            </div>
+        </div>
+        <div class="log-item">
+            <div class="log-name">
+                Aaron
+            </div>
+            <div class="log-money">
+                $50
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="finance-balance">
+
+</div>
+
+<!-- Navigation Bar -->
+<ul class="navbar">
+    <li class="nav-item">
+        <a href="homepage.html">
+            <img src="icons/home.png" alt="Trips">
+            <span>Trips</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="chat.html">
+            <img src="icons/chat.png" alt="Chat">
+            <span>Chat</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="profile.html">
+            <img src="icons/user.png" alt="Profile">
+            <span>Profile</span>
+        </a>
+    </li>
+</ul>
+
+    <script src="addtrip.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

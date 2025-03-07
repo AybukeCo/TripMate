@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", serif;
+    --black-text: #000000;
+    --white-text: #ffffff;
+    --background: #efebee;
+    --button: #cdaaee;
+    --button-hover: #644c7a;
+    --max-width: 390px;
+}
+
+body {
+    background-color: var(--background);
+    width: var(--max-width);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Logo Container*/
+.logo {
+    width: 288px;
+    height: auto;
+    margin: 3vh auto;
+}
+
+/* Image Placeholder */
+.image-container {
+    width: 288px;
+    height: 228px;
+    margin-top: 5vh;
+    background-color: #eee;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.button {
+    width: 334px;
+    height: 64px;
+    padding: 1em;
+    margin: 3vh auto;
+    background-color: var(--button);
+    color: white;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: var(--button-hover);
+}
+
+.login-signup a {
+    text-decoration: none;
+    color: var(--white-text);
+}
+
+/* Input Fields */
+.login-inputs {
+    margin-top: 5vh;
+}
+
+.register-inputs {
+    margin-top: 2.5vh;
+}
+
+.input-field {
+    width: 334px;
+    height: 64px;
+    padding: 15px;
+    margin: 15px auto;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-field input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+}
+
+.input-icon {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.email-valid-info {
+    font-size: 14px;
+    color: var(--button);
+    float: left;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Forgot Password */
+.forgot-password {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    color: var(--black-text);
+}
+
+
+/* Register/Login Tip Section */
+.tip-section {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.tip-section a {
+    font-weight: bold;
+    color: black;
+}
+
+.back-header {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.back-btn {
+    float: left;
+    cursor: pointer;
+}
+
+.back-btn i {
+    font-size: 30px;
+}
+
+.hide-pwd-btn {
+    cursor: pointer;
+}
