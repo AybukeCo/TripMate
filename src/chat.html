@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!--Chat Header-->
+    <div class="chat-header">
+        <div class="header-content">
+            <h3>My Chats</h3>
+        <button class="add-chat" onclick="toggleMenu()">+</button>
+        </div>
+    </div>
+
+    <!--Add Chat Menu-->
+    <div class="menu" id="add-trip-menu">
+        <h3>My Friends</h3>
+
+        <button class="close-menu" onclick="toggleMenu()">X</button>
+
+        <div class="chat-participants-list">
+            <ul id="participant-list">
+                <!-- Selected participants will appear here -->
+            </ul>
+        </div>        
+
+        <div class="show-groupchat-name">
+
+        </div>
+
+        <button class="closebtn-chat">Create Chat</button>
+    </div>
+    
+    <!--Added Chats-->
+    <div class="chat-show-box">
+        <div id="chat-container" class="chat-container">
+            <!-- New chats will appear here -->
+
+             <div class="chat-box">
+                
+             </div>
+             
+        </div>
+    </div>
+
+
+    <!--Nav bar-->
+    <ul class="navbar">
+        <li class="nav-item">
+            <a href="homepage.html">
+                <img src="../public/icons/home.png" alt="Trips">
+                <span>Trips</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="chat.html">
+                <img src="../public/icons/chat.png" alt="Chat">
+                <span>Chat</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="profile.html">
+                <img src="../public/icons/user.png" alt="Profile">
+                <span>Profile</span>
+            </a>
+        </li>
+    </ul>
+
+    <!--Scripts-->
+    <script src="../public/js/addchat.js"></script>
+    <script src="../public/js/navbar.js"></script>
+</body>
+</html>
