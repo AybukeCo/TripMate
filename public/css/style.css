@@ -47,6 +47,24 @@ body {
     margin-right: auto;
 }
 
+.back-header {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.back-btn {
+    float: left;
+    cursor: pointer;
+}
+
+.back-btn i {
+    font-size: 30px;
+}
+
+.back-header h3 {
+    margin: 10px 5px 5px 5px;
+}
+
 .bell {
     background: none;
     border: none;
@@ -734,69 +752,90 @@ label {
 
 /* Itinerary page */
 .create-itinerary {
-        background-color: var(--button);
-        color: white;
-        font-weight: 700;
-        font-size: 18px;
-        padding: 8px 40px; 
-        border: none;
-        border-radius: 10px; 
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-    }
-    
+    background-color: var(--button);
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 8px 15px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+
     .create-itinerary:hover {
         background-color: var(--button-hover);
     }
     
 
-.button-container {
+.tab-buttons {
     display: flex;
     justify-content: center; /* Adjusts spacing */
     margin: 20px;
-    
 }
 
-.image-button {
-    text-decoration: none; 
+.tab-buttons a {
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.tab-button {
     display: flex;
-    flex-direction: column;
+    width: 76px;
+    height: 51px;
+    padding: 17px 24px;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
+    margin: 0 10px 10px 10px;
+    flex-shrink: 0;
+    flex-direction: column;
     border: none;
-    background: none;
+    background-color: var(--button);
     cursor: pointer;
-    width: 120px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.image-button img {
-    width: 80px;
-    height: 50px;
+.tab-button:hover {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
-.image-button span {
-    margin-top: 5px;
-    font-size: 16px;
-    color: #333;
+.tab-button i {
+    color: var(--white-text);
+    font-size: 32px;
 }
 
-/* Highlight the active page */
-.image-button.active span {
-    color: var(--button-hover); /* Change text color for active page */
-    font-weight: bold;
+.tab-buttons span {
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--black-text);
+}
+
+.itinerary-form {
+    display: flex;
+    justify-content: center;
 }
 
 .itinerary-menu h3{
+    margin: 15px 0;
     text-align: left;
     width: 100%;
 }
 
 .date-container {
     display: flex; /* Align inputs in a row */
-    gap: 0; /* Adds space between them */
+    gap: 10px; /* Adds space between them */
     width: 100%; /* Ensure they take up full width */
     justify-content: center; /* Space out the inputs */
+    margin: 0 5px;
 }
 
 /* Adjust Date Picker Styling */
@@ -832,56 +871,31 @@ label {
 }
 
 /* Input field */
-#flight-details {
+.itinerary-input {
     background-color: var(--button);
     color: white;
     font-weight: bold;
-    padding: 10px 15px; 
+    padding: 10px 13px;
     border: none;
     border-radius: 10px; 
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
     transition: all 0.3s ease;
     outline: none; /* Remove default focus outline */
     text-align: left; /* Center text */
-    margin-bottom: 30px;
+    margin: 0 5px 10px 5px;
     display: flex;
     flex-direction: column;
     width:90%;
+    height: 30px;
 }
 
-#flight-details::placeholder {
+.itinerary-input::placeholder {
     color: rgba(255, 255, 255, 0.7); /* Lighten placeholder text */
 }
 
-#flight-details:focus {
+.itinerary-input:focus {
     background-color: var(--button-hover); /* Darker shade when focused */
 }
-
-#accommodation {
-    background-color: var(--button);
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px; 
-    border: none;
-    border-radius: 10px; 
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
-    transition: all 0.3s ease;
-    outline: none; /* Remove default focus outline */
-    text-align: left; /* Center text */
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    width:90%;
-}
-
-#accommodation::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Lighten placeholder text */
-}
-
-#accommodation:focus {
-    background-color: var(--button-hover); /* Darker shade when focused */
-}
-
 
 #itinerary-output {
     margin-top: 20px;
@@ -1072,18 +1086,21 @@ label {
 /* finance page */
 .finance-tab {
     width: 100%;
+    gap:10px;
     display: flex;
     justify-content: center;
+    margin: 0 5px;
 }
 
 .finance-tab-btn {
     flex-direction: row;
-    width: 166px;
-    height: 68px;
-    margin: 17px 24px;
+    width: 40%;
+    -webkit-appearance: none; /* Safari Fix */
+    height: 50px;
+    padding: 10px 13px;
     color:var(--white-text);
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     justify-content: center;
     align-items: center;
@@ -1092,26 +1109,27 @@ label {
     border: 0;
     background: var(--button);
     transition: 0.5s ease-in-out;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-}
-
-.finance-tab-btn:hover, .finance-tab-btn .active {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.finance-exp {
+.finance-tab-btn:hover, .finance-tab-btn .active {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+#finance-exp {
     width: 100%;
-    font-size:22px;
+    font-size:18px;
     font-weight: 600;
     justify-content: center;
     align-items: center;
+    margin: 10px;
 }
 
 .exp-row {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    gap: 30px;
+    gap:0px;
 }
 
 .exp-col {
@@ -1120,17 +1138,18 @@ label {
 }
 
 .exp-col span {
-    margin:5px 0;
+    margin:5px;
 }
 
 .exp-log {
     display: flex;
     flex-direction: column;
+    margin: 1em;
 }
 
 .exp-log-header {
-    width: 100%;
-    margin-top: 1em;
+    width: 90%;
+    margin: 10px;
 }
 
 #exp-log-date {
@@ -1165,10 +1184,10 @@ label {
 }
 
 .log-item {
-    width: 280px;
+    width: 85%;
     padding:10px;
     height: auto;
-    margin: 17px 24px;
+    margin: 17px 10px;
     justify-content: center;
     align-items: center;
     gap: 10px;

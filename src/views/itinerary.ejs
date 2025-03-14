@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMate</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ce1662cecb.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+    <%- include("partials/back-header") %>
+    <%- include("partials/tabs") %>
+    <div class="itinerary-menu" id="add-trip-menu">
+
+        <div id="itinerary-form"> <!-- Form Wrapper -->
+            <h3>Date</h3>
+            <div class="date-container">
+                <input type="date" id="start-date" class="date-picker">
+                <input type="date" id="end-date" class="date-picker">
+            </div>
+
+            <h3>Flight Details</h3>
+            <input type="text" class="itinerary-input" id="flight-details" placeholder="Enter your flight details">
+            <h3>Accommodation</h3>
+            <input type="text" class="itinerary-input" id="accommodation" placeholder="Enter your accommodation details">
+
+            <!-- Button to Create Itinerary -->
+            <button class="create-itinerary" onclick="generateItinerary()">Create Itinerary</button>
+
+        </div>
+        <!-- Empty div where the itinerary will be displayed -->
+        <div id="itinerary-output"></div>
+
+        <button id="edit-itinerary" class="edit-itinerary" style="display: none;" onclick="editItinerary()">Edit Itinerary</button>
+    </div>
+    <%- include("partials/navbar") %>
+
+    <script src="/js/addtrip.js"></script>
+    <script src="/js/itnierary.js"></script>
+    </body>
+</html>

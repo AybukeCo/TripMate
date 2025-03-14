@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMate</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ce1662cecb.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include("partials/back-header") %>
+    <%- include("partials/tabs") %>
+    <!-- Poll Creation Form -->
+    <div class="finance-tab">
+        <button class="finance-tab-btn">Expense</button>
+        <button class="finance-tab-btn">Balance</button>
+    </div>
+
+    <div id="finance-exp">
+        <div class="exp-row">
+            <div class="exp-col">
+                <span>My Expenses</span>
+                <span id="my-exp">$0</span>
+            </div>
+            <div class="exp-col">
+                <span>Total Expenses</span>
+                <span id="total-exp">$0</span>
+            </div>
+        </div>
+        <div class="exp-log">
+            <div class="exp-log-header">
+                <span id="exp-log-date">2 Feb 2025</span>
+                <div class="exp-log-add">
+                    <button onclick="addExpense()">+</button>
+                </div>
+            </div>
+            <div class="log-item">
+                <div class="log-name">
+                    Aaron
+                </div>
+                <div class="log-money">
+                    $50
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="finance-balance">
+
+    </div>
+    <%- include("partials/navbar") %>
+</body>
+</html>

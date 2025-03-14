@@ -1,59 +1,36 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tripmate</title>
-        <link rel="stylesheet" type="text/css" href="../public/css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMate</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
     <body>
-        <!--Homepage-->
-        <div class="header">
-            <img src="../public/icons/Logo.png" id="Logoimg" alt="Logo for TripMate">
-            <button class="bell"><img src="../public/icons/bell.png" alt="Notifications"></button>
-        </div>
-        
+        <%- include("partials/banner") %>
+        <!--<a href="/users/login">Login</a> | <a href="
+        /users/signup">Sign Up</a>-->
         <div class="dashboard">
+            <!--    Please delete this line after the project is tested and done-->
+            <a href="/itinerary" style="color:red;">Itinerary for test</a>
             <h2>Hi Alana!</h2>
             <h3>My Trips</h3>
             <div class="no-trip" id="no-trip">
-                <p>Click on the “+” button to create your first trip and to start planning with your friends.  
+                <p>Click on the “+” button to create your first trip and to start planning with your friends.
                     Add friends by searching their username in the search section.
                 </p>
 
                 <div class="illustration">
-                    <img src="../public/icons/mascot.png" alt="Bird Illustration">
+                    <img src="/icons/mascot.png" alt="Bird Illustration">
                 </div>
-        
-                <button class="plan-trip" onclick="toggleMenu()">Plan your first trip</button>
 
+                <button class="plan-trip" onclick="toggleMenu()">Plan your first trip</button>
             </div>
-            
+
             <button class="add-trip" onclick="toggleMenu()">+</button>
         </div>
-
-        <ul class="navbar">
-            <li class="nav-item">
-                <a href="homepage.html">
-                    <img src="../public/icons/home.png" alt="Trips">
-                    <span>Trips</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="chat.html">
-                    <img src="../public/icons/chat.png" alt="Chat">
-                    <span>Chat</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="profile.html">
-                    <img src="../public/icons/user.png" alt="Profile">
-                    <span>Profile</span>
-                </a>
-            </li>
-        </ul>
-
 
         <!-- Add trip menu-->
         <div class="menu" id="add-trip-menu">
@@ -68,7 +45,7 @@
                     <!-- Selected participants will appear here -->
                 </ul>
             </div>
-            
+
             <div class="dropdown">
                 <button class="dropbtn" onclick="toggleDropdown()">Add Participants</button>
                 <div class="dropdown-content" id="dropdown-content">
@@ -88,8 +65,8 @@
                 </div>
             </div>
             <div id="photo-preview"></div> <!-- This will show the uploaded photo -->
-            
-            
+
+
 
             <button class="closebtn" onclick="closeMenu()">Create Trip</button>
         </div>
@@ -100,12 +77,8 @@
                 <!-- New trips will appear here -->
             </div>
         </div>
-            
-        
 
-
-        <script src="../public/js/addtrip.js"></script>
-        <script src="../public/js/navbar.js"></script>
-
+        <%- include("partials/navbar") %>
+        <script src="/js/addtrip.js"></script>
     </body>
-    </html>
+</html>

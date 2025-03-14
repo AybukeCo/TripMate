@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripMate</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+    <body>
+    <%- include("partials/banner") %>
+    <section class="profile-section">
+        <h4>Profile</h4>
+        <div class="profile-card">
+            <div class="profile-img"></div>
+            <div class="profile-username">
+                <p>Alana <br> Me</p>
+            </div>
+        </div>
+
+        <div class="profile-input-group">
+            <label>Name</label>
+            <input type="text" value="Alana" disabled>
+            <label>Lastname</label>
+            <input type="text" value="Prnjavorac" disabled>
+            <label>Email</label>
+            <input type="email" value="Alana" disabled>
+            <label>Passwords</label>
+            <input type="password" value="Alana" disabled>
+        </div>
+        <button class="edit-profile-btn">Edit</button>
+    </section>
+
+    <section class="friend-section">
+        <h4>Friends</h4>
+    </section>
+    <%- include("partials/navbar") %>
+    </body>
+</html>
