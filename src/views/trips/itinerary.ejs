@@ -9,8 +9,8 @@
     <script src="https://kit.fontawesome.com/ce1662cecb.js" crossorigin="anonymous"></script>
 </head>
     <body>
-    <%- include("partials/back-header") %>
-    <%- include("partials/tabs") %>
+    <%- include("../partials/back-header") %>
+    <%- include("../partials/tabs") %>
     <div class="itinerary-menu" id="add-trip-menu">
 
         <div id="itinerary-form"> <!-- Form Wrapper -->
@@ -30,11 +30,9 @@
 
         </div>
         <!-- Empty div where the itinerary will be displayed -->
-        <div id="itinerary-output"></div>
-
-        <button id="edit-itinerary" class="edit-itinerary" style="display: none;" onclick="editItinerary()">Edit Itinerary</button>
+        <div id="itinerary-output" style="display: none;"></div>
     </div>
-    <%- include("partials/navbar") %>
+    <%- include("../partials/navbar") %>
 
     <script src="/js/addtrip.js"></script>
     <script src="/js/itnierary.js"></script>

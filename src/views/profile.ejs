@@ -21,20 +21,18 @@
 
         <div class="profile-input-group">
             <label>Name</label>
-            <input type="text" value="Alana" disabled>
+            <input class="profile-input" type="text" value="Alana" disabled>
             <label>Lastname</label>
-            <input type="text" value="Prnjavorac" disabled>
+            <input class="profile-input" type="text" value="Prnjavorac" disabled>
             <label>Email</label>
-            <input type="email" value="Alana" disabled>
+            <input class="profile-input" type="email" value="Alana" disabled>
             <label>Passwords</label>
-            <input type="password" value="Alana" disabled>
+            <input class="profile-input" type="password" value="Alana" disabled>
         </div>
-        <button class="edit-profile-btn">Edit</button>
-    </section>
-
-    <section class="friend-section">
-        <h4>Friends</h4>
+        <button class="edit-profile-btn" onclick="editProfile()">Edit</button>
+        <button class="save-profile-btn" id="save-profile-btn" onclick="saveProfile()">Save</button>
     </section>
     <%- include("partials/navbar") %>
+    <script src="/js/profile.js"></script>
     </body>
 </html>

@@ -3,6 +3,7 @@
     --black-text: #000000;
     --white-text: #ffffff;
     --gray-text: #656565;
+    --light-gray: #adadad;
     --background: #efebee;
     --button: #cdaaee;
     --button-hover: #644c7a;
@@ -214,7 +215,7 @@ body {
     font-size: 12px;
 }
 
-.active {
+.nav-item.active {
     border-radius: 15px;
     background: var(--white-text);
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -495,27 +496,39 @@ body {
 }
 
 /* Profile Edit Button */
-.edit-profile-btn {
+.profile-section button {
     width: 58px;
     height: 27px;
     border: none;
     border-radius: 20px;
-    background: var(--button);
-    color: var(--white-text);
+    right: 20px; /* Position it on the right */
     transition: 0.3s ease-in-out;
     text-align: center;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
-    line-height: normal;
     position: absolute;
-    right: 20px; /* Position it on the right */
+    color: var(--white-text);
+}
+.edit-profile-btn {
+    background: var(--button);
+    line-height: normal;
     top: 70px; /* Position it at the top */
     cursor: pointer;
 }
 
 .edit-profile-btn:hover {
     background-color: var(--button-hover);
+}
+
+.save-profile-btn {
+    background: var(--light-gray);
+    top: 480px;
+}
+
+.save-profile-btn.active {
+    background: var(--button);
+    cursor: pointer;
 }
 
 .profile-section {
@@ -801,10 +814,11 @@ label {
     background-color: var(--button);
     cursor: pointer;
     border-radius: 8px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease-in-out;
 }
 
-.tab-button:hover {
+.tab-button:hover, .tab-button.active {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
@@ -898,7 +912,7 @@ label {
 }
 
 #itinerary-output {
-    margin-top: 20px;
+    margin: 20px 0 16vh 0;
     padding: 20px;
     background: white;
     border-radius: 10px;
@@ -911,7 +925,7 @@ label {
     padding: 15px;
     background-color: var(--background);
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -949,7 +963,7 @@ label {
     border-radius: 5px;
 }
 
-.itinerary-day button {
+.activity-add, .edit-itinerary{
     margin-top: 5px;
     padding: 5px 10px;
     background-color: var(--button);
@@ -959,12 +973,29 @@ label {
     cursor: pointer;
 }
 
-.itinerary-day button:hover {
+#edit-itinerary {
+    margin-bottom: 10px;
+}
+
+.activity-add:hover {
     background-color: var(--button-hover);
 }
 
-.delete-btn {
+.activity-item {
+    width: calc(100% - 20px);
+    margin:5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.activity-item span{
+    float: left;
+}
+
+.itinerary-day .delete-btn {
     background-color: rgb(252, 170, 170);
+    margin:0;
     color: white;
     border: none;
     width: 20px;
@@ -976,7 +1007,9 @@ label {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    text-align: center;: 10px; /* Space between text and button */
+    text-align: center; /* Space between text and button */
+    transition: all 0.3s ease-in-out;
+    float:right;
 }
 
 .delete-btn:hover {
@@ -1112,7 +1145,7 @@ label {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.finance-tab-btn:hover, .finance-tab-btn .active {
+.finance-tab-btn:hover, .finance-tab-btn.active {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
 }
 
