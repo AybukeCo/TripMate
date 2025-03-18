@@ -144,7 +144,7 @@ function createTripBox(name, photoSrc) {
     var tripBox = document.createElement('div');
     tripBox.classList.add('trip-box');
     tripBox.onclick = function() {
-        window.location.href = 'itinerary.html';
+        window.location.href = '/trips/itinerary';
     };
 
     // Add the trip name as a heading
