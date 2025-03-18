@@ -1,6 +1,1 @@
-Database: MONGO_URI=mongodb+srv://Aybuke:aybukecolak2025@cluster0.xmtwp.mongodb.net/
 
-Google Map API key: AIzaSyCva7Ese-XEMjqWdBH8yawts7p0gzSQsPM
-includes = [Maps JavaScript API - Places API (new) - Routes API]
-
-Google signup Client ID: 530374221559-160a3aqqejhjat2c3hjenk22ko86etmr.apps.googleusercontent.com
