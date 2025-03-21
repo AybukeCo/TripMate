@@ -3,6 +3,7 @@ function editProfile() {
     document.querySelectorAll(".profile-input").forEach(input => {
         input.removeAttribute("disabled");
     })
+    document.getElementById("profile-pwd").type = "text";
     // todo: verify all the input formats
     // enable the save button for profile changes
     const saveProfileButton = document.getElementById("save-profile-btn");
@@ -14,6 +15,7 @@ function saveProfile() {
     document.querySelectorAll(".profile-input").forEach(input => {
         input.setAttribute("disabled","true");
     })
+    document.getElementById("profile-pwd").type = "password";
     // todo: connect to database
     // disable the save button for profile changes
     const saveProfileButton = document.getElementById("save-profile-btn");

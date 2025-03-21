@@ -6,25 +6,48 @@
         <title>TripMate</title>
         <link rel="stylesheet" href="/css/login.css">
         <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
-
+        <script src="https://kit.fontawesome.com/ce1662cecb.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <!-- Image Placeholder -->
-        <div class="image-container">
-            <img src="/icons/mascot.png" alt="Login Page Image" width="288">
-        </div>
+        <%- include("partials/back-header") %>
+        <!--<div class="back-header">
+            <div class="back-btn">
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+        </div>-->
+        <div class="logo"><img src="icons/Logo.png" alt="TripMate Logo" width="288"></div>
+        <form class="login-inputs" action="/login" method="post">
 
-        <!-- Logo -->
-        <div class="logo"><img src="/icons/Logo.png" alt="TripMate Logo" width="288"></div>
+            <p class="email-valid-info">Please enter valid email.</p>
+            <div class="input-field">
+                <label for="login-email" style="display: none">Type your email</label>
+                <input type="email" id="login-email" name="email" placeholder="E-mail">
+            </div>
 
-        <!-- Buttons -->
-        <div class="login-signup">
-            <a href="/trips">
-                <button class="button">Login</button>
-            </a>
-            <a href="/register">
-                <button class="button">Sign Up</button>
-            </a>
+
+            <div class="input-field">
+                <label for="login-pwd" style="display: none">Type your password</label>
+                <input type="password" id="login-pwd" name="password" placeholder="Password">
+                <!-- Eye icon for password visibility -->
+                <div class="hide-pwd-btn" onclick="hideShowPwd()">
+                    <i class="fa-solid fa-eye-slash"></i>
+                </div>
+            </div>
+            <!-- Forgot Password -->
+            <div class="forgot-password">
+                <a href="/reset">Forgot password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button class="cfm-btn button" id="log-cfm-btn" type="submit">Login</button>
+
+        </form>
+
+
+        <!-- Register Section -->
+        <div class="tip-section">
+            New to TripMate App? <a href="/register">Register</a>
         </div>
+        <script src="js/login.js"></script>
     </body>
 </html>

@@ -142,6 +142,10 @@ body {
     margin: 10px 0;
 }
 
+.back-header h3 {
+    margin: 10px 5px 5px 5px;
+}
+
 .back-btn {
     float: left;
     cursor: pointer;
@@ -153,4 +157,15 @@ body {
 
 .hide-pwd-btn {
     cursor: pointer;
+}
+
+#login-page {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#login-page.show {
+    display: block;
+    opacity: 1;
 }

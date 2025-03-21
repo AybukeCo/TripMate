@@ -523,7 +523,7 @@ body {
 
 .save-profile-btn {
     background: var(--light-gray);
-    top: 480px;
+    top: 400px;
 }
 
 .save-profile-btn.active {
