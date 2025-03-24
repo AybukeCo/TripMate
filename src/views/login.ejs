@@ -43,6 +43,9 @@
 
         </form>
 
+        <% if (error) { %>
+            <script>alert("<%= error %>")</script>
+        <% } %>
 
         <!-- Register Section -->
         <div class="tip-section">

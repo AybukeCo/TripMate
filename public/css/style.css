@@ -601,6 +601,24 @@ label {
     border: none;
 }
 
+#logout {
+    position: absolute;
+    top: 500px;
+    margin: 60px 5px;
+}
+
+.logout-btn {
+    width: 200px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 20px;
+    background: var(--button);
+    color: var(--white-text);
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
 /* Friends section in profile */
 
 .friend-section {

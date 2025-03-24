@@ -15,13 +15,13 @@
         <div class="profile-card">
             <div class="profile-img"></div>
             <div class="profile-username">
-                <p><%= name %></p>
+                <p><%= username %></p>
             </div>
         </div>
 
         <div class="profile-input-group">
             <label for="profile-name">Name</label>
-            <input id="profile-name" class="profile-input" type="text" value=<%= name %> disabled>
+            <input id="profile-name" class="profile-input" type="text" value=<%= username %> disabled>
             <label for="profile-email">Email</label>
             <input id="profile-email" type="email" value=<%= email %> disabled>
             <label for="profile-pwd">Passwords</label>
@@ -30,7 +30,7 @@
         <button class="edit-profile-btn" onclick="editProfile()">Edit</button>
         <button class="save-profile-btn" id="save-profile-btn" onclick="saveProfile()">Save</button>
     </section>
-    <a href="/logout"><button>Logout</button></a>
+    <a href="/logout" id="logout"><button class="logout-btn">Logout</button></a>
     <%- include("partials/navbar") %>
     <script src="/js/profile.js"></script>
     </body>

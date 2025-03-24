@@ -6,14 +6,24 @@ router.get("/", (req, res) => {
 })
 
 router.get("/login", (req, res) => {
-    res.render("login", { title:"LOGIN" });
+    if (req.session.user) return res.redirect('/profile');
+    res.render("login", {
+        title:"LOGIN",
+        error: null
+    });
 });
 
 router.get("/register", (req, res) => {
-    res.render("register", { title: "REGISTER" });
+    if (req.session.user) return res.redirect('/profile');
+    res.render("register", {
+        title: "REGISTER",
+        error: null,
+        success: null
+    });
 })
 
 router.get("/reset", (req, res) => {
+    if (req.session.user) return res.redirect('/profile');
     res.render("reset", { title: "RESET PASSWORD" });
 })
 
@@ -23,7 +33,7 @@ router.get("/trips/", (req, res) => {
     res.render('trips/homepage', {
         title: "Trips",
         email: req.session.user.email,
-        name: req.session.user.name,
+        username: req.session.user.username,
         password: req.session.user.password
     });
 });
@@ -34,7 +44,7 @@ router.get("/profile", (req, res) => {
     res.render("profile", {
         title: "Profile Page",
         email: req.session.user.email,
-        name: req.session.user.name,
+        username: req.session.user.username,
         password: req.session.user.password
     });
 });
@@ -44,7 +54,7 @@ router.get("/trips/itinerary", (req, res) => {
     res.render("trips/itinerary", {
         title: "ITINERARY",
         email: req.session.user.email,
-        name: req.session.user.name,
+        username: req.session.user.username,
         password: req.session.user.password
     });
 });
@@ -53,7 +63,7 @@ router.get("/trips/finance", (req, res) => {
     res.render("trips/finance", {
         title: "FINANCE",
         email: req.session.user.email,
-        name: req.session.user.name,
+        username: req.session.user.username,
         password: req.session.user.password
     });
 });
@@ -62,7 +72,7 @@ router.get("/trips/polls", (req, res) => {
     res.render("trips/polls", {
         title: "POLLS",
         email: req.session.user.email,
-        name: req.session.user.name,
+        username: req.session.user.username,
         password: req.session.user.password
     });
 });
