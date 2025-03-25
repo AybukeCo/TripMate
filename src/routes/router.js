@@ -42,6 +42,17 @@ router.get("/trips/", (req, res) => {
     });
 });
 
+router.get("/chat", (req, res) => {
+    if (!req.session.user) return res.redirect('/login');
+
+    res.render("chat", {
+        title: "Chat Page",
+        email: req.session.user.email,
+        username: req.session.user.username,
+        password: req.session.user.password
+    });
+});
+
 router.get("/profile", (req, res) => {
     if (!req.session.user) return res.redirect('/login');
 
@@ -73,7 +84,18 @@ router.get("/trips/finance", (req, res) => {
         password: req.session.user.password
     });
 });
-router.get("/trips/polls", (req, res) => {
+
+router.get("/trips/chat", (req, res) => {
+    if (!req.session.user) return res.redirect('/login');
+
+    res.render("trips/chat", {
+        title: "CHAT",
+        email: req.session.user.email,
+        username: req.session.user.username,
+        password: req.session.user.password
+    });
+});
+/*router.get("/trips/polls", (req, res) => {
     if (!req.session.user) return res.redirect('/login');
     res.render("trips/polls", {
         title: "POLLS",
@@ -81,6 +103,6 @@ router.get("/trips/polls", (req, res) => {
         username: req.session.user.username,
         password: req.session.user.password
     });
-});
+});*/
 
 export default router;

@@ -510,23 +510,28 @@ body {
     position: absolute;
     color: var(--white-text);
 }
-.edit-profile-btn {
-    background: var(--button);
+
+.profile-btn {
     line-height: normal;
-    top: 70px; /* Position it at the top */
     cursor: pointer;
 }
 
-.edit-profile-btn:hover {
+#edit-profile-btn {
+    background: var(--button);
+    top: 230px; /* Position it at the top */
+
+}
+
+#edit-profile-btn:hover {
     background-color: var(--button-hover);
 }
 
-.save-profile-btn {
+#save-profile-btn {
     background: var(--light-gray);
-    top: 400px;
+    top: 200px;
 }
 
-.save-profile-btn.active {
+#save-profile-btn.active {
     background: var(--button);
     cursor: pointer;
 }
@@ -550,11 +555,11 @@ body {
 }
 
 .profile-card {
-    width: 35%;
+    width: 80%;
     display: flex;
     background: var(--white-text);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     border: 2px solid var(--black-text);
     border-radius: 20px;
     padding: 10px;
@@ -568,12 +573,7 @@ body {
     margin: 10px 10px 0 10px ;
 }
 
-.profile-username {
-    margin-left: 28px;
-}
-
 .profile-img {
-    margin-left: 22px;
     width: 70px;
     height: 70px;
     background-color: var(--white-text);
@@ -581,8 +581,25 @@ body {
     border: 1px solid var(--black-text);
 }
 
+.profile-img img {
+    width:70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.profile-text {
+    font-size: 14px;
+    color: var(--light-gray);
+    font-weight: 600;
+    margin: 5px 0 0 5px;
+    display: none;
+}
+
+
 .profile-input-group {
-    margin: 20px 0;
+    position: fixed;
+    top: 260px;
+    margin: 40px 0;
     text-align: left;
     font-weight: 600;
     font-size: 15px;
@@ -591,7 +608,7 @@ label {
     display: block;
     margin: 10px;
 }
-.profile-input-group input {
+.profile-input{
     width: 280px;
     height: 21px;
     font-weight: bold;
@@ -599,6 +616,10 @@ label {
     padding: 0 10px;
     border-radius: 20px;
     border: none;
+}
+
+.profile-input.active{
+    background: var(--light-gray);
 }
 
 #logout {

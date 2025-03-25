@@ -13,22 +13,27 @@
     <section class="profile-section">
         <h4>Profile</h4>
         <div class="profile-card">
-            <div class="profile-img"></div>
+            <form action="/avatar" method="post">
+                <div class="profile-img">
+                    <img src="/icons/bell.png" id="profile-avatar">
+                </div>
+            </form>
             <div class="profile-username">
                 <p><%= username %></p>
             </div>
         </div>
+        <div class="profile-text"><span>Click to upload your avatar image.</span></div>
 
         <form class="profile-input-group" action="/profile" method="post">
             <label for="profile-name">Name</label>
             <input id="profile-name" class="profile-input" name="username" type="text" value=<%= username %> disabled>
             <label for="profile-email">Email</label>
-            <input id="profile-email" type="email" name="email" value=<%= email %> disabled>
+            <input id="profile-email" class="profile-input" type="email" name="email" value=<%= email %> disabled>
             <label for="profile-pwd">Passwords</label>
             <input id="profile-pwd" class="profile-input" type="password" name="password" value=<%= password %> disabled>
-            <button class="save-profile-btn" id="save-profile-btn" onclick="saveProfile()" type="submit">Save</button>
+            <button class="profile-btn" id="save-profile-btn" onclick="saveProfile()">Save</button>
         </form>
-        <button class="edit-profile-btn" onclick="editProfile()">Edit</button>
+        <button class="profile-btn" id="edit-profile-btn" onclick="editProfile()">Edit</button>
 
     </section>
     <a href="/logout" id="logout"><button class="logout-btn">Logout</button></a>

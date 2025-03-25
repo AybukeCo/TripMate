@@ -48,11 +48,12 @@ The purple is too light so the color contract ratio is not ideal.
 /tripmate-app
 ├── /node_modules
 ├── /public             # Static sources
-│   ├── /css
-│   ├── /js
+│   ├── /css            # Stylesheet
+│   ├── /js             # JS functions for ejs templates
 │   ├── /images
 │   ├── /icons
 ├── /src                # Source directory
+│   ├── /db             # Database resources
 │   ├── /views          # EJS templates
 │   │   ├── homepage.ejs   # Homepage
 │   │   ├── profile.ejs
@@ -60,9 +61,7 @@ The purple is too light so the color contract ratio is not ideal.
 │   │   ├── signup.ejs
 │   │   ├── trips.ejs
 │   ├── /routes         # Routes directory
-│   │   ├── index.js
-│   │   ├── users.js
-│   │   ├── trips.js
+│   │   ├── router      # Contains only 
 │   ├── /controllers    # Business logic (optional)
 │   ├── /models         # Database models (optional)
 │   ├── app.js          # Express entry point

@@ -8,8 +8,8 @@ document.querySelectorAll(".tab-item").forEach(item => {
         console.log(href);
     } else if (href.includes("finance")) {
         item.setAttribute("data-pages", "finance");
-    } else if (href.includes("polls")) {
-        item.setAttribute("data-pages", "polls");
+    } else if (href.includes("chat")) {
+        item.setAttribute("data-pages", "chat");
     }
     else {
         item.setAttribute("data-pages", href); // other pages will be directly linked to `href`

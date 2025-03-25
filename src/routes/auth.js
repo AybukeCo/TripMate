@@ -1,6 +1,4 @@
 import express from 'express';
-//import fs from 'fs';
-//import path from 'path';
 import { getDB } from "../db/db.js";
 import { resetGoogleIdIndex } from "../db/cleanGoogleID.js";
 const router = express.Router();
@@ -18,7 +16,7 @@ router.post("/login", async (req, res) => {
     const user = await db.collection('users').findOne({ email });
 
     if (email && password) {
-        if(user) {
+        if(user && user.password === password) {
             req.session.user = {email:user.email, username:user.username,password: user.password}; // Store user in session
             return res.redirect("/trips"); // Redirect to homepage after login
         }
@@ -93,7 +91,6 @@ router.post("/register", async (req, res) => {
 
 router.post("/profile", async (req, res) => {
     const { username } = req.body;
-    console.log(username);
     try {
         const email = req.session.user.email;
         const db=getDB();
@@ -113,6 +110,7 @@ router.post("/profile", async (req, res) => {
                 { email }, // filter by email
                 { $set: { username: username } }
             );
+            req.session.user.username=username;
             console.log("Update user result:", result);
             return res.render("profile",{
                 title:"profile page",
@@ -120,7 +118,7 @@ router.post("/profile", async (req, res) => {
                 success:"Username successfully changed!",
                 username: username,
                 email: email,
-                password: req.session.user.password
+                password: user.password
             })
         }
     } catch (err) {
