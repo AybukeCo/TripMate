@@ -31,7 +31,7 @@
     </div>
     <div class="input-field">
         <label for="cfm-pwd" style="display: none;">Confirm your password.</label>
-        <input type="password" id="cfm-pwd" name="password" placeholder="Confirm Password">
+        <input type="password" id="cfm-pwd" name="passwordConfirm" placeholder="Confirm Password">
         <!-- Eye icon for password visibility -->
         <div class="hide-pwd-btn" onclick="hideShowPwd()">
             <i class="fa-solid fa-eye-slash"></i>
@@ -40,6 +40,20 @@
     <!-- Login Button -->
     <button class="cfm-btn button" id="rst-pwd-btn" type="submit">Reset Password</button>
 </form>
+
+<% if (error) { %>
+    <script>alert("<%= error %>")</script>
+<% } %>
+
+<% if (success) { %>
+    <script>
+        alert("<%= success %>")
+        setTimeout(()=>{
+            window.location.href="/login";
+        },1000);
+    </script>
+<% } %>
+
 
 <!-- Register Section -->
 <div class="tip-section">

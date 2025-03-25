@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express';
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -24,7 +24,11 @@ router.get("/register", (req, res) => {
 
 router.get("/reset", (req, res) => {
     if (req.session.user) return res.redirect('/profile');
-    res.render("reset", { title: "RESET PASSWORD" });
+    res.render("reset", {
+        title: "RESET PASSWORD",
+        error: null,
+        success: null
+    });
 })
 
 router.get("/trips/", (req, res) => {
@@ -77,4 +81,4 @@ router.get("/trips/polls", (req, res) => {
     });
 });
 
-module.exports = router;
+export default router;
