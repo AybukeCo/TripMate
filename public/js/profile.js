@@ -35,3 +35,21 @@ function saveProfile() {
     document.querySelector("#profile-name").classList.remove("active");
     document.querySelector(".profile-text").setAttribute("style","display:none;");
 }
+
+//================
+// Showing the text if hover over user icon
+//================
+document.addEventListener('DOMContentLoaded', function() {
+    const profileImg = document.querySelector('.profile-img');
+    const profileText = document.querySelector('.profile-text');
+    
+    // Show profile-text on hover
+    profileImg.addEventListener('mouseenter', function() {
+        profileText.style.display = 'block';
+    });
+
+    // Hide profile-text when hover ends
+    profileImg.addEventListener('mouseleave', function() {
+        profileText.style.display = 'none';
+    });
+});
