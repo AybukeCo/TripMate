@@ -1,3 +1,9 @@
+function uploadAvatar() {
+    console.log("Upload avatar available now.");
+    const upload = document.getElementById("avatar-form");
+    upload.submit();
+}
+
 function editProfile() {
     // enable all the input fields
     const profileName=document.getElementById('profile-name');
@@ -28,8 +34,4 @@ function saveProfile() {
     document.querySelector("#profile-name").setAttribute("disabled","true");
     document.querySelector("#profile-name").classList.remove("active");
     document.querySelector(".profile-text").setAttribute("style","display:none;");
-}
-
-function uploadAvatar() {
-    console.log("Upload avatar available now.");
 }

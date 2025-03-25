@@ -3,6 +3,8 @@ import path from "path";
 import { fileURLToPath } from 'url';
 // module needed in identity verification
 import session from "express-session";
+import fileUpload from "express-fileupload";
+
 import {connectToMongoClient} from "./src/db/db.js";
 
 const PORT = 8000; // set port to 8000
@@ -32,7 +34,8 @@ app.use(session({
     saveUninitialized: false,
     cookie: { secure: false } // Set `true` for HTTPS
 }));
-
+// allow fileUpload
+app.use(fileUpload());
 
 //////////// connect to MongoDB ///////////
 await connectToMongoClient();
@@ -40,6 +43,8 @@ await connectToMongoClient();
 /////////////// set the routes /////////////////
 import homepageRoutes from "./src/routes/router.js";
 import authRoutes from "./src/routes/auth.js";
+import uploadRoutes from "./src/routes/upload.js";
 
 app.use("/", homepageRoutes);
 app.use("/", authRoutes);
+app.use("/", uploadRoutes);

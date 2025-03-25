@@ -1,11 +1,21 @@
 import express from 'express';
 import { getDB } from "../db/db.js";
 import { resetGoogleIdIndex } from "../db/cleanGoogleID.js";
+
+import path from "path";
+import fs from "fs";
+import {fileURLToPath} from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const router = express.Router();
 
-// Load users from JSON
+// Set upload Directory, if not exists, create
+const uploadDir = path.join(__dirname, "./uploads");
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
 
-// const users = JSON.parse(fs.readFileSync(path.join(__dirname, "../user.json"))).users;
 // Regulate the password to an expression with the length from 8 to 16, with only numbers, english letters and certain signs
 const pwdReg=/^[A-Za-z0-9@#\-_.,]{8,16}$/;
 
@@ -178,5 +188,4 @@ router.post("/reset", async (req, res) => {
         })*/
     }
 });
-
 export default router;

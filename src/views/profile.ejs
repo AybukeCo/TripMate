@@ -13,10 +13,12 @@
     <section class="profile-section">
         <h4>Profile</h4>
         <div class="profile-card">
-            <form action="/avatar" method="post">
+            <form action="/avatar" method="post" id="avatar-form" enctype="multipart/form-data">
                 <div class="profile-img">
                     <img src="/icons/bell.png" id="profile-avatar">
                 </div>
+                <input type="file" name="sampleFile" />
+                <input type="submit" value="Upload File" />
             </form>
             <div class="profile-username">
                 <p><%= username %></p>
@@ -24,7 +26,7 @@
         </div>
         <div class="profile-text"><span>Click to upload your avatar image.</span></div>
 
-        <form class="profile-input-group" action="/profile" method="post">
+        <form class="profile-input-group" action="/profile" method="post" encType="multipart/form-data">
             <label for="profile-name">Name</label>
             <input id="profile-name" class="profile-input" name="username" type="text" value=<%= username %> disabled>
             <label for="profile-email">Email</label>
