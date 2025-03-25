@@ -1,6 +1,6 @@
 // module of mongodb
 import { MongoClient } from 'mongodb';
-// dotenv file to protect sensitive information in database
+// dotenv file to protect sensitive information in db
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -10,7 +10,7 @@ let db;
 export async function connectToMongoClient() {
     try {
         await client.connect();
-        db=client.db(); // default database
+        db=client.db(); // default db
         console.log("Connected to MongoDB...");
     } catch (err) {
         console.error("Failed to connect to MongoDB...");

@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 // module needed in identity verification
 import session from "express-session";
-import {connectToMongoClient} from "./src/database/db.js";
+import {connectToMongoClient} from "./src/db/db.js";
 
 const PORT = 8000; // set port to 8000
 const app = express();
@@ -35,7 +35,7 @@ app.use(session({
 
 
 //////////// connect to MongoDB ///////////
-connectToMongoClient();
+await connectToMongoClient();
 
 /////////////// set the routes /////////////////
 import homepageRoutes from "./src/routes/router.js";

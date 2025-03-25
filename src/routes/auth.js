@@ -1,7 +1,8 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import { getDB } from "../database/db.js";
+import { getDB } from "../db/db.js";
+import { resetGoogleIdIndex } from "../db/cleanGoogleID.js";
 const router = express.Router();
 
 // Load users from JSON
@@ -10,22 +11,22 @@ const router = express.Router();
 // Regulate the password to an expression with the length from 8 to 16, with only numbers, english letters and certain signs
 const pwdReg=/^[A-Za-z0-9@#\-_.,]{8,16}$/;
 
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     // const user = users.find(u => u.email === email && u.password === password);
     const db = getDB();
-    const user = db.collection('users').findOne({ email });
+    const user = await db.collection('users').findOne({ email });
 
     if (email && password) {
         if(user) {
             req.session.user = {email:user.email, username:user.username,password: user.password}; // Store user in session
-            res.redirect("/trips"); // Redirect to homepage after login
+            return res.redirect("/trips"); // Redirect to homepage after login
         }
         else{
-            res.render('login',{title:"LOGIN",error:"Wrong email or password"});
+            return res.render('login',{title:"LOGIN",error:"Wrong email or password"});
         }
     } else {
-        res.render('login',{title:"LOGIN",error:"Invalid email or password"});
+        return res.render('login',{title:"LOGIN",error:"Invalid email or password"});
     }
 });
 
@@ -38,14 +39,15 @@ router.get("/logout", (req, res) => {
 router.post("/register", async (req, res) => {
     const {email, username, password} = req.body;
     const db = getDB();
-    const existingUser = db.collection('users').findOne({ email });
+    const existingUser = await db.collection('users').findOne({ email });
 
     // const existingUser = users.find(u => u.email === email && u.password === password);
     console.log(req.body);
+    console.log(existingUser);
 
     // Password format error
     if (!pwdReg.test(password)) {
-        res.render('register', {
+        return res.render('register', {
             title: "REGISTER",
             error: "Password must be 8-16 characters and contain only letter, numbers and @#\-_.,",
             success: null
@@ -54,7 +56,7 @@ router.post("/register", async (req, res) => {
 
     // Existing user error
     if (existingUser) {
-        res.render('register', {
+        return res.render('register', {
             title: "REGISTER",
             error: "There is an existing user related with this email. Please change your email or try login.",
             success: null
@@ -64,9 +66,11 @@ router.post("/register", async (req, res) => {
         const newUser= {email, username, password};
 
         try {
+            await resetGoogleIdIndex();
             const insertUser = await db.collection('users').insertOne(newUser);
             console.log("User inserted:",insertUser.insertedId);
-            res.render('register', {
+            req.session.user = {email,username,password};
+            return res.render('register', {
                 title: "REGISTER",
                 error: null,
                 success: "Registration successfully. Redirecting to login..."

@@ -16,7 +16,7 @@ function saveProfile() {
         input.setAttribute("disabled","true");
     })
     document.getElementById("profile-pwd").type = "password";
-    // todo: connect to database
+    // todo: connect to db
     // disable the save button for profile changes
     const saveProfileButton = document.getElementById("save-profile-btn");
     saveProfileButton.classList.remove("active");
