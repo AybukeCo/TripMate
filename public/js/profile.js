@@ -1,9 +1,7 @@
 function editProfile() {
     // enable all the input fields
-    document.querySelectorAll(".profile-input").forEach(input => {
-        input.removeAttribute("disabled");
-    })
-    document.getElementById("profile-pwd").type = "text";
+    document.querySelector("#profile-name").removeAttribute("disabled");
+    // document.getElementById("profile-pwd").type = "text";
     // todo: verify all the input formats
     // enable the save button for profile changes
     const saveProfileButton = document.getElementById("save-profile-btn");
@@ -12,12 +10,10 @@ function editProfile() {
 
 function saveProfile() {
     // disable all the input fields
-    document.querySelectorAll(".profile-input").forEach(input => {
-        input.setAttribute("disabled","true");
-    })
-    document.getElementById("profile-pwd").type = "password";
-    // todo: connect to db
+    document.querySelector("#profile-name").setAttribute("disabled","true");
+    // document.getElementById("profile-pwd").type = "password";
     // disable the save button for profile changes
     const saveProfileButton = document.getElementById("save-profile-btn");
     saveProfileButton.classList.remove("active");
+    saveProfileButton.submit();
 }

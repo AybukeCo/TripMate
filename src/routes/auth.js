@@ -1,6 +1,6 @@
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
+//import fs from 'fs';
+//import path from 'path';
 import { getDB } from "../db/db.js";
 import { resetGoogleIdIndex } from "../db/cleanGoogleID.js";
 const router = express.Router();
@@ -91,10 +91,49 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.post("/reset", (req, res) => {
+router.post("/profile", async (req, res) => {
+    const { username } = req.body;
+    console.log(username);
+    try {
+        const email = req.session.user.email;
+        const db=getDB();
+        const user=await db.collection('users').findOne({ email });
+        if (username===user.username){
+            return res.render('profile',{
+                title:"profile page",
+                error:"There is no change to make!",
+                success:null,
+                username: user.username,
+                email: email,
+                password: user.password
+            })
+        }
+        else {
+            const result = await db.collection("users").updateOne(
+                { email }, // filter by email
+                { $set: { username: username } }
+            );
+            console.log("Update user result:", result);
+            return res.render("profile",{
+                title:"profile page",
+                error:null,
+                success:"Username successfully changed!",
+                username: username,
+                email: email,
+                password: req.session.user.password
+            })
+        }
+    } catch (err) {
+        console.log("Requested session failed: ", err);
+        return res.redirect("/profile");
+    }
+
+})
+
+router.post("/reset", async (req, res) => {
     const {email, password, passwordConfirm} = req.body;
-    console.log(req.body);
-    const existingUser = users.find(u => u.email === email);
+    const db = getDB();
+    const existingUser = await db.collection('users').findOne({ email });
 
     if (!pwdReg.test(password)){
         return res.render('reset', {
@@ -118,7 +157,18 @@ router.post("/reset", (req, res) => {
         })
     }
     if (password && password === passwordConfirm) {
-        existingUser.password = password;
+        const result = await db.collection("users").updateOne(
+            { email }, // filter by email
+            { $set: { password: password } }
+        );
+        console.log("Update user result:", result);
+        res.render('reset', {
+            title: "RESET PASSWORD",
+            error: null,
+            success: "Reset password successfully. Redirecting to login..."
+        })
+
+        /*
         fs.writeFile(path.join(__dirname, "../user.json"), JSON.stringify(users,null,2), (err) => {
             if (err) return res.send("Error writing into user.json");
 
@@ -127,7 +177,7 @@ router.post("/reset", (req, res) => {
                 error: null,
                 success: "Reset password successfully. Redirecting to login..."
             })
-        })
+        })*/
     }
 });
 

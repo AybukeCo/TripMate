@@ -49,7 +49,9 @@ router.get("/profile", (req, res) => {
         title: "Profile Page",
         email: req.session.user.email,
         username: req.session.user.username,
-        password: req.session.user.password
+        password: req.session.user.password,
+        error: null,
+        success: null
     });
 });
 
