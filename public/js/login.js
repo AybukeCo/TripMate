@@ -46,6 +46,22 @@ document.getElementsByName("email").forEach(input => {
     });
 })
 
-// automatically execute once the page is loaded
-document.addEventListener("DOMContentLoaded", initBackButtons);
+// automatically execute once the page is loaded + Add hovering effect
+document.addEventListener("DOMContentLoaded", function () {
+    const profileImg = document.querySelector('.profile-img');
+    const profileText = document.querySelector('.profile-text');
+
+    // Show profile-text when hovering over profile-img
+    profileImg.addEventListener('mouseenter', function () {
+        profileText.style.display = 'block';
+    });
+
+    // Hide profile-text when mouse leaves profile-img
+    profileImg.addEventListener('mouseleave', function () {
+        profileText.style.display = 'none';
+    });
+
+    // Initialize back buttons
+    initBackButtons();
+});
 
