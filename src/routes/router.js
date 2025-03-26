@@ -1,4 +1,6 @@
 import express from 'express';
+import {getDB} from "../db/db.js";
+
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -31,77 +33,93 @@ router.get("/reset", (req, res) => {
     });
 })
 
-router.get("/trips/", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+router.get("/trips/", async (req, res) => {
+    const email = req.session.user.email;
+    const db=getDB();
+    const user=await db.collection('users').findOne({ email });
+
+    if (!user) return res.redirect('/login');
 
     res.render('trips/homepage', {
         title: "Trips",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password
+        user:user
     });
 });
 
-router.get("/chat", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+router.get("/map", async (req, res) => {
+    try {
+        const email = req.session.user.email;
+        const db=getDB();
+        const user=await db.collection('users').findOne({ email });
 
-    res.render("chat", {
-        title: "Chat Page",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password
-    });
+        if (!user) return res.redirect('/login');
+
+        res.render("map", {
+            title: "Map page",
+            user: user
+        });
+    } catch (err) {
+        console.log(err);
+        return res.redirect('/');
+    }
 });
 
-router.get("/profile", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+router.get("/profile", async (req, res) => {
 
-    res.render("profile", {
-        title: "Profile Page",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password,
-        error: null,
-        success: null
-    });
+    try {
+        const email = req.session.user.email;
+        const db=getDB();
+        const user=await db.collection('users').findOne({ email });
+
+        if (!user) return res.redirect('/login');
+
+        res.render("profile", {
+            title: "Profile Page",
+            user:user,
+            error: null,
+            success: null
+        });
+    } catch (err) {
+        console.log(err);
+        return res.redirect('/');
+    }
 });
 
 router.get("/trips/itinerary", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+    const user=req.session.user;
+    if (!user) return res.redirect('/login');
+
     res.render("trips/itinerary", {
         title: "ITINERARY",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password
+        user: user
     });
 });
 router.get("/trips/finance", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+    const user=req.session.user;
+    if (!user) return res.redirect('/login');
     res.render("trips/finance", {
         title: "FINANCE",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password
+        user: user
     });
 });
 
 router.get("/trips/chat", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+    const user=req.session.user;
+    if (!user) return res.redirect('/login');
 
     res.render("trips/chat", {
         title: "CHAT",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password
+        user: user
     });
 });
 /*router.get("/trips/polls", (req, res) => {
-    if (!req.session.user) return res.redirect('/login');
+    const user=req.session.user;
+    if (!user){
+        return res.redirect('/login')
+    };
     res.render("trips/polls", {
         title: "POLLS",
-        email: req.session.user.email,
-        username: req.session.user.username,
-        password: req.session.user.password
+        user: user
     });
 });*/
 

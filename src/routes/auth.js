@@ -10,12 +10,6 @@ const __dirname = path.dirname(__filename);
 
 const router = express.Router();
 
-// Set upload Directory, if not exists, create
-const uploadDir = path.join(__dirname, "./uploads");
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
-}
-
 // Regulate the password to an expression with the length from 8 to 16, with only numbers, english letters and certain signs
 const pwdReg=/^[A-Za-z0-9@#\-_.,]{8,16}$/;
 
@@ -98,45 +92,6 @@ router.post("/register", async (req, res) => {
         })*/
     }
 });
-
-router.post("/profile", async (req, res) => {
-    const { username } = req.body;
-    try {
-        const email = req.session.user.email;
-        const db=getDB();
-        const user=await db.collection('users').findOne({ email });
-        if (username===user.username){
-            return res.render('profile',{
-                title:"profile page",
-                error:"There is no change to make!",
-                success:null,
-                username: user.username,
-                email: email,
-                password: user.password
-            })
-        }
-        else {
-            const result = await db.collection("users").updateOne(
-                { email }, // filter by email
-                { $set: { username: username } }
-            );
-            req.session.user.username=username;
-            console.log("Update user result:", result);
-            return res.render("profile",{
-                title:"profile page",
-                error:null,
-                success:"Username successfully changed!",
-                username: username,
-                email: email,
-                password: user.password
-            })
-        }
-    } catch (err) {
-        console.log("Requested session failed: ", err);
-        return res.redirect("/profile");
-    }
-
-})
 
 router.post("/reset", async (req, res) => {
     const {email, password, passwordConfirm} = req.body;

@@ -11,27 +11,91 @@ const router = express.Router();
 
 // Set upload Directory, if not exists, create
 const uploadDir = path.join(__dirname, "../../public/img/");
+const photoDir = "/img/";
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
 }
+
+router.post("/profile", async (req, res) => {
+    const { username } = req.body;
+    try {
+        const email = req.session.user.email;
+        const db=getDB();
+        const user=await db.collection('users').findOne({ email });
+        if (username===user.username){
+            return res.render('profile',{
+                title:"profile page",
+                error:"There is no change to make!",
+                success:null,
+                user:user
+            })
+        }
+        else {
+            const result = await db.collection("users").updateOne(
+                { email }, // filter by email
+                { $set: { username: username } }
+            );
+            req.session.user.username=username;
+            console.log("Update user result:", result);
+            return res.render("profile",{
+                title:"profile page",
+                error:null,
+                success:"Username successfully changed!",
+                user: user
+            })
+        }
+    } catch (err) {
+        console.log("Requested session failed: ", err);
+        return res.redirect("/profile");
+    }
+
+})
 
 router.post("/avatar", async (req, res) => {
     // Check if a file was uploaded
     if (!req.files || Object.keys(req.files).length === 0) {
         return res.status(400).send('No files were uploaded.');
     }
+    try {
+        const email = req.session.user.email;
+        const db=getDB();
+        const user=await db.collection('users').findOne({ email });
+        // The name of the input field (i.e. "avatarImg") is used to retrieve the uploaded file
+        const avatarImg = req.files.avatarImg;
+        const uploadPath = uploadDir + avatarImg.name;
+        const photoPath = photoDir + avatarImg.name;
+        // Use the mv() method to place the file somewhere on your server
+        avatarImg.mv(uploadPath, async function(err) {
+            if (err)
+                return res.render("profile",
+                    {
+                        title:"Profile Page",
+                        error:err,
+                        success:null,
+                        user:user
+                    });
 
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-    const sampleFile = req.files.sampleFile;
-    const uploadPath = uploadDir + sampleFile.name;
+            console.log('File uploaded to ' + uploadPath);
+            const result = await db.collection("users").updateOne(
+                { email }, // filter by email
+                { $set: { photo: photoPath } }
+            );
 
-    // Use the mv() method to place the file somewhere on your server
-    sampleFile.mv(uploadPath, function(err) {
-        if (err)
-            return res.status(500).send(err);
+            console.log("Update user result:", result);
+            console.log(user);
 
-        res.send('File uploaded to ' + uploadPath);
-    });
+            return res.render("profile", {
+                title: "Profile Page",
+                error:null,
+                success:"Upload avatar image successfully.",
+                user:user
+            })
+        });
+    } catch (err) {
+        console.log("Requested session failed: ", err);
+        return res.redirect("/profile");
+    }
+
 })
 
 export default router;
