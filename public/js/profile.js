@@ -1,7 +1,17 @@
 function uploadAvatar() {
     console.log("Upload avatar available now.");
+
+    // the function of choosing a file is anchored to the new class 'upload-avatar'
     const fileInput = document.getElementById('file-input');
+    const fileSubmit = document.getElementById('file-submit');
     fileInput.click();
+
+    // submit the form automatically when there's a change
+    fileInput.addEventListener('change', function(){
+        if (fileInput.files && fileInput.files.length > 0) {
+            fileSubmit.click();
+        }
+    })
 }
 
 function editProfile() {
@@ -23,6 +33,7 @@ function editProfile() {
     const profileAvatar = document.querySelector(".profile-img");
     profileAvatar.classList.add('upload-avatar');
     profileAvatar.setAttribute("style", "cursor: pointer; background: var(--light-gray);");
+
     document.getElementById("profile-avatar").setAttribute("style", "display:none;");
     document.querySelector(".upload-avatar").setAttribute("onclick","uploadAvatar()");
 }
@@ -56,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const profileText = document.querySelector('.profile-text');
     
     // Show profile-text on hover
-    profileImg.addEventListener('mouseenter', function() {
+    profileImg.addEventListener('mouseover', function() {
         profileText.style.display = 'block';
     });
 

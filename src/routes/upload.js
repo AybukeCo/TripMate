@@ -62,8 +62,9 @@ router.post("/avatar", async (req, res) => {
         const user=await db.collection('users').findOne({ email });
         // The name of the input field (i.e. "avatarImg") is used to retrieve the uploaded file
         const avatarImg = req.files.avatarImg;
-        const uploadPath = uploadDir + avatarImg.name;
-        const photoPath = photoDir + avatarImg.name;
+        const avatarImgName = user._id.toString() + '.'+ avatarImg.name.split('.').pop();
+        const uploadPath = uploadDir + avatarImgName;
+        const photoPath = photoDir + avatarImgName;
         // Use the mv() method to place the file somewhere on your server
         avatarImg.mv(uploadPath, async function(err) {
             if (err)

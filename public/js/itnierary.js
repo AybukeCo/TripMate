@@ -3,7 +3,7 @@ function generateItinerary() {
     const startDate = document.getElementById("start-date").value;
     const endDate = document.getElementById("end-date").value;
     const flightDetails = document.getElementById("flight-details").value;
-    const accommodation = document.getElementById("accommodation").value;
+    const places = document.getElementById("places").value;
     
     // Check if dates are selected
     if (!startDate || !endDate) {
@@ -20,7 +20,7 @@ function generateItinerary() {
     localStorage.setItem("startDate", startDate);
     localStorage.setItem("endDate", endDate);
     localStorage.setItem("flightDetails", flightDetails);
-    localStorage.setItem("accommodation", accommodation);
+    localStorage.setItem("places", places);
 
     // Convert dates to Date objects
     const start = new Date(startDate);
@@ -34,12 +34,12 @@ function generateItinerary() {
         currentDate.setDate(currentDate.getDate() + 1); // Move to the next day
     }
 
-    // Generate the top section with Flight Details and Accommodation
+    // Generate the top section with Flight Details and places
     let itineraryHTML = `
         <h2>Your Itinerary</h2>
         <div class="itinerary-top">
             <p><strong>Flight Details:</strong> ${flightDetails || "No flight details provided."}</p>
-            <p><strong>Accommodation:</strong> ${accommodation || "No accommodation details provided."}</p>
+            <p><strong>places:</strong> ${places || "No places details provided."}</p>
         </div>
         <button id="edit-itinerary" class="edit-itinerary" onclick="editItinerary()">Edit Itinerary</button>
     `;
@@ -74,7 +74,7 @@ function editItinerary() {
     document.getElementById("start-date").value = localStorage.getItem("startDate");
     document.getElementById("end-date").value = localStorage.getItem("endDate");
     document.getElementById("flight-details").value = localStorage.getItem("flightDetails");
-    document.getElementById("accommodation").value = localStorage.getItem("accommodation");
+    document.getElementById("places").value = localStorage.getItem("places");
 
     // Show the form again and hide the itinerary
     document.getElementById("itinerary-form").style.display = "block";

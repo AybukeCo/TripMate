@@ -22,12 +22,11 @@
                     <p><%= user.username %></p>
                 </div>
             </div>
-
+            <div class="profile-text"><span>Click to upload your avatar image.</span></div>
             <input type="file" name="avatarImg" id="file-input" style="display: none;" />
-            <input type="submit" value="Upload File" />
+            <input type="submit" id="file-submit" value="Upload File" style="display: none;" />
         </form>
 
-        <div class="profile-text"><span>Click to upload your avatar image.</span></div>
         <button class="profile-btn" id="edit-profile-btn" onclick="editProfile()">Edit</button>
         <form class="profile-input-group" action="/profile" method="post" encType="multipart/form-data">
 
@@ -35,8 +34,10 @@
             <input id="profile-name" class="profile-input" name="username" type="text" value=<%= user.username %> disabled />
             <label for="profile-email">Email</label>
             <input id="profile-email" class="profile-input" type="email" name="email" value=<%= user.email %> disabled />
-            <label for="profile-pwd">Passwords</label>
-            <input id="profile-pwd" class="profile-input" type="password" name="password" value=<%= user.password %> disabled />
+            <label for="profile-id">ID</label>
+            <input id="profile-id" class="profile-input" type="text" name="id" value=<%= user._id.toString() %> disabled />
+            <!--<label for="profile-pwd">Passwords</label>
+            <input id="profile-pwd" class="profile-input" type="password" name="password" value=<%= user.password %> disabled />-->
             <button class="profile-btn" id="save-profile-btn" onclick="saveProfile()" disabled>Save</button>
         </form>
 
